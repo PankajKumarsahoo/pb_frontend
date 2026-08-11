@@ -3,8 +3,7 @@
 // ============================================================
 
 // FastAPI backend URL
-const API_URL = "https://16.192.61.123:8000/chat";
-
+const API_URL = "https://api.yourdomain.com/chat";
 const STORAGE_KEY = "pratibhabatee_chat_history";
  
  
