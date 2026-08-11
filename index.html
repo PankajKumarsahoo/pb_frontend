@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pratibhabatee AI Assistant Widget">
+    <meta name="theme-color" content="#111111">
+
+    <title>Pratibhabatee AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     BLANK PAGE
+====================================================== -->
+
+<div class="blank-page">
+    <p class="blank-hint">Your page content goes here.</p>
+</div>
+
+
+<!-- =====================================================
+     FLOATING CHATBOT ICON (corner launcher)
+====================================================== -->
+
+<button
+    class="chat-launcher"
+    id="chatLauncher"
+    type="button"
+    aria-label="Open Pratibhabatee AI Assistant"
+>
+    <span class="launcher-icon-open" aria-hidden="true">💬</span>
+</button>
+
+
+<!-- =====================================================
+     CHATBOT PANEL — docked full-height on the right edge
+====================================================== -->
+
+<div class="widget-panel" id="widgetPanel">
+
+    <!-- HEADER -->
+    <header class="panel-header">
+
+        <div class="panel-header-left">
+
+            <div class="panel-avatar" aria-hidden="true">P</div>
+
+            <div class="panel-heading">
+                <strong>Pratibhabatee AI</strong>
+                <span class="online"><i></i>Online</span>
+            </div>
+
+        </div>
+
+        <div class="panel-header-right">
+
+            <button class="icon-btn" id="newChatBtn" type="button" title="New chat" aria-label="New chat">↻</button>
+            <button class="icon-btn" id="widgetCloseBtn" type="button" title="Close" aria-label="Close chat">✕</button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HOME VIEW
+    ====================================================== -->
+
+    <section class="view active-view" id="homeView">
+
+        <div class="chat-container" id="chatContainer" aria-live="polite" aria-label="Chat messages">
+
+            <!-- WELCOME CARD -->
+            <div class="welcome" id="welcome">
+
+                <div class="welcome-row">
+                    <div class="welcome-avatar" aria-hidden="true">P</div>
+                    <div class="welcome-copy">
+                        <p><span class="wave" aria-hidden="true">👋</span> Welcome to <strong>Pratibhabatee</strong>!</p>
+                        <p class="welcome-sub">I'm your AI assistant. I can help you explore services, find verified providers, check our mission, or connect you with support.</p>
+                    </div>
+                </div>
+
+                <h3 class="quick-heading">How can I help you today?</h3>
+
+                <div class="quick-grid" id="quickGrid">
+
+                    <button class="quick-card" type="button" data-question="What services does Pratibhabatee provide?">
+                        <span class="quick-icon">🗂️</span>
+                        <span>Show All Services</span>
+                    </button>
+
+                    <button class="quick-card" type="button" data-question="Show me the verified service providers and artists.">
+                        <span class="quick-icon">🎨</span>
+                        <span>Find Providers</span>
+                    </button>
+
+                    <button class="quick-card" type="button" data-question="What are the latest services on Pratibhabatee?">
+                        <span class="quick-icon">🆕</span>
+                        <span>Latest Updates</span>
+                    </button>
+
+                    <button class="quick-card" type="button" data-question="What is the mission of Pratibhabatee?">
+                        <span class="quick-icon">🎯</span>
+                        <span>Our Mission</span>
+                    </button>
+
+                    <button class="quick-card" type="button" data-question="How do I become a service provider on Pratibhabatee?">
+                        <span class="quick-icon">💼</span>
+                        <span>Become a Provider</span>
+                    </button>
+
+                    <button class="quick-card" type="button" data-question="I need help, please connect me to support.">
+                        <span class="quick-icon">🆘</span>
+                        <span>Contact Support</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- CHAT MESSAGES -->
+            <div class="messages" id="chatMessages"></div>
+
+        </div>
+
+        <!-- INPUT AREA -->
+        <div class="input-area">
+
+            <div class="input-wrapper">
+
+                <textarea
+                    id="messageInput"
+                    placeholder="Type your message..."
+                    rows="1"
+                    maxlength="2000"
+                    aria-label="Message input"
+                ></textarea>
+
+                <button id="sendBtn" class="send-btn" type="button" aria-label="Send message" title="Send message">
+                    <span aria-hidden="true">➤</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HISTORY VIEW
+    ====================================================== -->
+
+    <section class="view" id="historyView">
+
+        <div class="view-title">History</div>
+
+        <div class="history-container" id="historyContainer"></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MENU VIEW (brand info, capabilities, footer)
+    ====================================================== -->
+
+    <section class="view" id="menuView">
+
+        <div class="view-title">Menu</div>
+
+        <div class="menu-container">
+
+            <div class="menu-brand">
+                <div class="menu-logo">P</div>
+                <div>
+                    <strong>Pratibhabatee</strong>
+                    <span>AI Assistant</span>
+                </div>
+            </div>
+
+            <button class="menu-new-chat" id="menuNewChatBtn" type="button">
+                <span>+</span> New Chat
+            </button>
+
+            <div class="menu-section">
+
+                <h4>Capabilities</h4>
+
+                <p><span>✓</span> Website knowledge</p>
+                <p><span>✓</span> Live web information</p>
+                <p><span>✓</span> Multilingual support</p>
+                <p><span>✓</span> AI-powered answers</p>
+
+            </div>
+
+            <div class="menu-section">
+
+                <h4>Support</h4>
+
+                <p><span>💬</span> Chat with support</p>
+                <p><span>✉️</span> support@pratibhabatee.in</p>
+                <p><span>📞</span> +91 12345 67890</p>
+
+            </div>
+
+            <div class="menu-footer">
+                <span>Pratibhabatee AI</span>
+                <small>Powered by AI</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BOTTOM NAV — Home / History / Menu
+    ====================================================== -->
+
+    <nav class="bottom-nav" aria-label="Widget sections">
+
+        <button class="bottom-nav-item active" id="navHome" type="button" data-view="home">
+            <span class="bn-icon">🏠</span>
+            <span>Home</span>
+        </button>
+
+        <button class="bottom-nav-item" id="navHistory" type="button" data-view="history">
+            <span class="bn-icon">🕘</span>
+            <span>History</span>
+        </button>
+
+        <button class="bottom-nav-item" id="navMenu" type="button" data-view="menu">
+            <span class="bn-icon">☰</span>
+            <span>Menu</span>
+        </button>
+
+    </nav>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
